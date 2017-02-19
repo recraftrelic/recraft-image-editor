@@ -11,7 +11,7 @@ export default class Uploader extends Component {
 	render() {
 		return(
 			<div className="upload-container">
-				<Dropzone className="Uploader" onDrop={this.onDrop.bind(this)}>
+				<Dropzone {...this.props} onDrop={this.onDrop.bind(this)}>
 					{this.props.children}
 				</Dropzone>
 			</div>
