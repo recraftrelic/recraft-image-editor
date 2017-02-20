@@ -1,6 +1,11 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import './style/uploader';
 
+@font-face {
+	font-family: "Poppins";
+	src: url("./fonts/Poppins-Regular.ttf") format('truetype');
+}
+
 h1 {
 	margin-top: 0px;
 }
