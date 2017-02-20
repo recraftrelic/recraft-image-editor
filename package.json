@@ -144,8 +144,10 @@
     "json-loader": "^0.5.4",
     "minimist": "^1.2.0",
     "mocha": "^3.2.0",
+    "node-sass": "^4.5.0",
     "react-addons-test-utils": "^15.4.2",
     "redux-logger": "^2.7.4",
+    "sass-loader": "^6.0.1",
     "sinon": "^1.17.7",
     "spectron": "^3.4.1",
     "style-loader": "^0.13.1",
@@ -158,6 +160,7 @@
     "webpack-validator": "^2.3.0"
   },
   "dependencies": {
+    "bootstrap": "^3.3.7",
     "canvas": "^1.6.3",
     "electron-debug": "^1.1.0",
     "font-awesome": "^4.7.0",
