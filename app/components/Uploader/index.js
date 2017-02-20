@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import Dropzone from 'react-dropzone'
+import Dropzone from 'react-dropzone';
 
 export default class Uploader extends Component {
 
@@ -10,7 +10,7 @@ export default class Uploader extends Component {
 
 	render() {
 		return(
-			<div className="upload-container">
+			<div className="uploader-container">
 				<Dropzone {...this.props} onDrop={this.onDrop.bind(this)}>
 					{this.props.children}
 				</Dropzone>
