@@ -10,6 +10,8 @@
     "url": "https://github.com/recraftstudio"
   },
   "license": "MIT",
-  "dependencies": {
+  "dependencies": {},
+  "devDependencies": {
+    "webpack": "^2.2.1"
   }
 }
