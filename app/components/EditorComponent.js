@@ -16,8 +16,8 @@ class Editor extends React.Component {
 		this.props.updateCanvasImage(files[0].path);
 	}
 
-	showCanvas = () => {
-		return <CanvasComponent bgImage="http://konvajs.github.io/assets/yoda.jpg" />
+	showCanvas = (image) => {
+		return <CanvasComponent bgImage={image} />
 	}
 
 	showUploader = () => {
@@ -27,10 +27,10 @@ class Editor extends React.Component {
 	}
 
 	render () {
-		console.log(this.props.canvas);
+		const {image} = this.props.canvas;
 		return (
 			<div>
-				{this.showUploader()}
+				{ image ? this.showCanvas(image) : this.showUploader()}
 			</div>
 		)
 	}
