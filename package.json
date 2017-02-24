@@ -112,7 +112,6 @@
     "babel-register": "^6.22.0",
     "babili-webpack-plugin": "^0.0.9",
     "boiler-room-custodian": "^0.6.1",
-    "canvas": "^1.6.3",
     "chai": "^3.5.0",
     "concurrently": "^3.1.0",
     "cross-env": "^3.1.4",
@@ -121,7 +120,6 @@
     "electron": "^1.4.15",
     "electron-builder": "^13.3.2",
     "electron-devtools-installer": "^2.0.1",
-    "electron-rebuild": "^1.5.7",
     "enzyme": "^2.7.1",
     "eslint": "^3.14.0",
     "eslint-config-airbnb": "^14.0.0",
@@ -163,6 +161,7 @@
   },
   "dependencies": {
     "bootstrap": "^3.3.7",
+    "canvas": "^1.6.3",
     "electron-debug": "^1.1.0",
     "font-awesome": "^4.7.0",
     "jsdom": "^9.11.0",

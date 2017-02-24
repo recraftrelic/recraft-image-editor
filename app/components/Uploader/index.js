@@ -4,7 +4,8 @@ import Dropzone from 'react-dropzone';
 export default class Uploader extends Component {
 
 	onDrop (files) {
-		this.props.onDrop(files);
+		console.log(files);
+		// this.props.onDrop(files);
 	}
 
 	render() {
