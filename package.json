@@ -121,6 +121,7 @@
     "electron": "^1.4.15",
     "electron-builder": "^13.3.2",
     "electron-devtools-installer": "^2.0.1",
+    "electron-rebuild": "^1.5.7",
     "enzyme": "^2.7.1",
     "eslint": "^3.14.0",
     "eslint-config-airbnb": "^14.0.0",
