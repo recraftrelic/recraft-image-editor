@@ -9,8 +9,8 @@ class Editor extends React.Component {
 		super(props)
 	}
 
-	onImage = (file) => {
-		console.log(file)
+	onImage = (files) => {
+		this.props.updateCanvasImage(files[0].path);
 	}
 
 	showCanvas = () => {
@@ -18,7 +18,7 @@ class Editor extends React.Component {
 	}
 
 	showUploader = () => {
-		return <Uploader className="uploader" activeClassName="active">
+		return <Uploader onDrop={this.onImage} className="uploader" activeClassName="active">
 					<h1>Drop image here & start editing</h1>
 				</Uploader>
 	}
@@ -26,7 +26,7 @@ class Editor extends React.Component {
 	render () {
 		return (
 			<div>
-				{this.showCanvas()}
+				{this.showUploader()}
 			</div>
 		)
 	}
