@@ -3,7 +3,7 @@ import * as actionsType from './actionsType';
 const updateCanvasImage = (image) => {
 	return dispatch => {
 		dispatch({
-			type: actionsType.UPDATE_CANVS_IMAGE,,
+			type: actionsType.UPDATE_CANVS_IMAGE,
 			image
 		})
 	}
