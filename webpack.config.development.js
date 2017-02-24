@@ -45,8 +45,13 @@ export default validate(merge(baseConfig, {
     ]
   },
 
+  externals: {
+    "canvas":"canvas"
+  },
+
   plugins: [
     // https://webpack.github.io/docs/hot-module-replacement-with-webpack.html
+    new webpack.IgnorePlugin(/jsdom$/),
     new webpack.HotModuleReplacementPlugin(),
 
     /**
