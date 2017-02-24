@@ -1,9 +1,11 @@
 // @flow
 import { combineReducers } from 'redux';
 import { routerReducer as routing } from 'react-router-redux';
+import canvas from './canvas';
 
 const rootReducer = combineReducers({
-  routing
+	canvas,
+	routing
 });
 
 export default rootReducer;
