@@ -1,6 +1,7 @@
 // @flow
 import React from 'react';
 import Uploader from './Uploader';
+import CanvasComponent from './Canvas';
 
 class Editor extends React.Component {
 	render () {
