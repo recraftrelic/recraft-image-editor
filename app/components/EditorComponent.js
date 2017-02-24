@@ -2,6 +2,9 @@
 import React from 'react';
 import Uploader from './Uploader';
 import CanvasComponent from './Canvas';
+import {bindActionCreators} from 'redux';
+import {updateCanvasImage} from '../actions/canvas';
+import {connect} from 'react-redux';
 
 class Editor extends React.Component {
 
@@ -24,6 +27,7 @@ class Editor extends React.Component {
 	}
 
 	render () {
+		console.log(this.props.canvas);
 		return (
 			<div>
 				{this.showUploader()}
@@ -32,4 +36,7 @@ class Editor extends React.Component {
 	}
 }
 
-export default Editor;
+export default connect((state) => ({
+	canvas: state.canvas
+}), (dispatch) => bindActionCreators({updateCanvasImage}, dispatch)
+)(Editor);
