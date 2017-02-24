@@ -1,4 +1,4 @@
-import * as actionsType from './actionsType';
+import * as actionsType from '../actions/actionsType';
 
 const initState = {
 	image: '',
@@ -9,9 +9,9 @@ export default (state = initState, action) => {
 	const {type} = action;
 
 	switch(type) {
-		case actions.UPDATE_CANVS_IMAGE:
+		case actionsType.UPDATE_CANVS_IMAGE:
 			return {...state, image: action.image}
-		case default:
+		default:
 			return state;
 	}
 }
