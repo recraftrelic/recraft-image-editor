@@ -9,7 +9,7 @@ class CanvasComponent extends React.Component {
 			<div className="canvas-container">
 				<Stage width={width} height={height}>
 					<Layer>
-						<CanvasImage image={bgImage} />
+						<CanvasImage width={width} height={height} image={bgImage} />
 					</Layer>
 				</Stage>
 			</div>
