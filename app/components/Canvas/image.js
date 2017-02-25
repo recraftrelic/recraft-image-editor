@@ -39,8 +39,9 @@ class CanvasImage extends React.Component {
 
 	render () {
 		const {image} = this.state;
+		const {width, height} = this.props;
 		return (
-			<Image image={image} />
+			<Image image={image} width={width} height={height} />
 		)
 	}
 }
