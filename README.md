@@ -3,7 +3,7 @@
 # Recraft Image Editor
 > A simple to use and minimal image editor
 
-![alt tag]('./demo.gif')
+![alt tag](./demo.gif)
 
 ### Get Started with development
 
