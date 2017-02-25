@@ -3,7 +3,8 @@ import * as actionsType from '../actions/actionsType';
 const initState = {
 	image: '',
 	height: 0,
-	width: 0
+	width: 0,
+	rotation: 0
 };
 
 
