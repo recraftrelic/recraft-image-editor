@@ -4,12 +4,15 @@ import CanvasImage from './image';
 
 class CanvasComponent extends React.Component {
 	render(){
+		const {width, height, bgImage} = this.props;
 		return (
-			<Stage width={700} height={700}>
-				<Layer>
-					<CanvasImage image={this.props.bgImage} />
-				</Layer>
-			</Stage>
+			<div className="canvas-container">
+				<Stage width={width} height={height}>
+					<Layer>
+						<CanvasImage image={bgImage} />
+					</Layer>
+				</Stage>
+			</div>
 		)
 	}
 }
