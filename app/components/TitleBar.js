@@ -8,7 +8,6 @@ class TitleBar extends React.Component {
 				<div className="pull-left">
 					<WindowControls />
 				</div>
-				This is the titlebar
 			</div>
 		)
 	}
