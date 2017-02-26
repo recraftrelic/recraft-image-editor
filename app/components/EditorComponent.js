@@ -2,6 +2,7 @@
 import React from 'react';
 import Uploader from './Uploader';
 import CanvasComponent from './Canvas';
+import TitleBar from './TitleBar';
 import {bindActionCreators} from 'redux';
 import {updateCanvasImage} from '../actions/canvas';
 import {connect} from 'react-redux';
@@ -26,6 +27,7 @@ class Editor extends React.Component {
 		const {image, width, height} = this.props.canvas;
 		return (
 			<div>
+				<TitleBar />
 				{ image ? <CanvasComponent bgImage={image} width={width} height={height} /> : this.showUploader()}
 			</div>
 		)
