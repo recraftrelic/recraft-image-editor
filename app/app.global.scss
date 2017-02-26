@@ -16,4 +16,11 @@ h1 {
 
 .window-title-bar {
 	-webkit-app-region: drag;
+	padding: 0px 10px;
+	background-color: rgba(230, 230, 230, 0.52);
+	padding: 4px 10px;
+	height: 30px;
+	width: 100%;
+	position: fixed;
+	z-index: 999;
 }
