@@ -11,3 +11,9 @@
 h1 {
 	margin-top: 0px;
 }
+
+// window-title-bar
+
+.window-title-bar {
+	-webkit-app-region: drag;
+}
