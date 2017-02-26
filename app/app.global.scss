@@ -1,6 +1,7 @@
 @import "~bootstrap/dist/css/bootstrap.min.css";
 @import './style/uploader';
 @import './style/canvas';
+@import "./style/window-controls";
 
 @font-face {
 	font-family: "Poppins";
@@ -9,4 +10,17 @@
 
 h1 {
 	margin-top: 0px;
+}
+
+// window-title-bar
+
+.window-title-bar {
+	-webkit-app-region: drag;
+	padding: 0px 10px;
+	background-color: rgba(230, 230, 230, 0.52);
+	padding: 4px 10px;
+	height: 30px;
+	width: 100%;
+	position: fixed;
+	z-index: 999;
 }
