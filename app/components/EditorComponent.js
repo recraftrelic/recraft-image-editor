@@ -3,6 +3,7 @@ import React from 'react';
 import Uploader from './Uploader';
 import CanvasComponent from './Canvas';
 import TitleBar from 'react-window-titlebar';
+import ActionBar from './ActionBar';
 import {bindActionCreators} from 'redux';
 import {updateCanvasImage} from '../actions/canvas';
 import {connect} from 'react-redux';
@@ -30,6 +31,7 @@ class Editor extends React.Component {
 			<div>
 				<TitleBar remote={remote} title="This is a title" theme="light"/>
 				{ image ? <CanvasComponent rotation={rotation} bgImage={image} width={width} height={height} /> : this.showUploader()}
+				<ActionBar />
 			</div>
 		)
 	}
