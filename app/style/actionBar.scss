@@ -1,0 +1,16 @@
+#ActionBarContainer {
+	position: fixed;
+    bottom: 0px;
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding: 25px 0px;
+    #ActionBar {
+		box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.16);
+		.btn {
+		    border-radius: 0px;
+		    border: none;
+		    background-color: transparent;
+		}
+    }
+}
