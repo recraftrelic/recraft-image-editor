@@ -2,10 +2,11 @@
 import React from 'react';
 import Uploader from './Uploader';
 import CanvasComponent from './Canvas';
-import TitleBar from './TitleBar';
+import TitleBar from 'react-window-titlebar';
 import {bindActionCreators} from 'redux';
 import {updateCanvasImage} from '../actions/canvas';
 import {connect} from 'react-redux';
+import {remote} from 'electron';
 
 class Editor extends React.Component {
 
@@ -27,7 +28,7 @@ class Editor extends React.Component {
 		const {image, width, height} = this.props.canvas;
 		return (
 			<div>
-				<TitleBar />
+				<TitleBar remote={remote} title="This is a title" theme="light"/>
 				{ image ? <CanvasComponent bgImage={image} width={width} height={height} /> : this.showUploader()}
 			</div>
 		)
