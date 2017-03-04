@@ -15,9 +15,6 @@ class ActionBar extends React.Component {
 					<button className="btn btn-default">
 						<Icon name="download" />
 					</button>
-					<button className="btn btn-default">
-						<Icon name="share-alt" />
-					</button>
 				</div>
 			</div>
 		)
