@@ -8,6 +8,7 @@ import {bindActionCreators} from 'redux';
 import {updateCanvasImage} from '../actions/canvas';
 import {connect} from 'react-redux';
 import {remote} from 'electron';
+import Icon from './Icon';
 
 class Editor extends React.Component {
 
@@ -31,7 +32,17 @@ class Editor extends React.Component {
 			<div>
 				<TitleBar remote={remote} title="This is a title" theme="light"/>
 				{ image ? <CanvasComponent rotation={rotation} bgImage={image} width={width} height={height} /> : this.showUploader()}
-				<ActionBar />
+				<ActionBar>
+					<button className="btn btn-default">
+						<Icon name="undo" />
+					</button>
+					<button className="btn btn-default">
+						<Icon name="repeat" />
+					</button>
+					<button className="btn btn-default">
+						<Icon name="download" />
+					</button>
+				</ActionBar>
 			</div>
 		)
 	}
