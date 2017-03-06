@@ -8,15 +8,23 @@ import {bindActionCreators} from 'redux';
 import {updateCanvasImage} from '../actions/canvas';
 import {connect} from 'react-redux';
 import {remote} from 'electron';
+import Icon from './Icon';
+import {saveImage, saveDialog} from '../utils';
 
 class Editor extends React.Component {
 
 	constructor(props) {
-		super(props)
+		super(props);
+		this.state = {
+			stage: null
+		}
 	}
 
 	onImage = (files) => {
 		this.props.updateCanvasImage(files[0].path);
+		this.setState({
+			filename: files[0].path // extract filename from image
+		})
 	}
 
 	showUploader = () => {
@@ -25,13 +33,29 @@ class Editor extends React.Component {
 				</Uploader>
 	}
 
+	onDowload = () => {
+		const {stage, filename} = this.state;
+		let newImage = stage.getStage().toDataURL().replace(/^data:image\/png;base64,/, ""); // get canvas dataurl data and strip data meta ( we don't need it to save file to disk )
+		saveDialog(filename, (name) => saveImage(name, newImage));
+	}
+
 	render () {
 		const {image, width, height, rotation} = this.props.canvas;
 		return (
 			<div>
 				<TitleBar remote={remote} title="This is a title" theme="light"/>
-				{ image ? <CanvasComponent rotation={rotation} bgImage={image} width={width} height={height} /> : this.showUploader()}
-				<ActionBar />
+				{ image ? <CanvasComponent getStage={(stage) => this.setState({stage})} rotation={rotation} bgImage={image} width={width} height={height} /> : this.showUploader()}
+				<ActionBar>
+					<button className="btn btn-default">
+						<Icon name="undo" />
+					</button>
+					<button className="btn btn-default">
+						<Icon name="repeat" />
+					</button>
+					<button onClick={this.onDowload} className="btn btn-default">
+						<Icon name="download" />
+					</button>
+				</ActionBar>
 			</div>
 		)
 	}
