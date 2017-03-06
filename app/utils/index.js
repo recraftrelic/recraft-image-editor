@@ -1,4 +1,5 @@
 import fs from 'fs';
+import {remote} from 'electron';
 
 const calculateAspectRatioFit = (srcWidth, srcHeight, maxWidth, maxHeight) => {
 
@@ -8,6 +9,21 @@ const calculateAspectRatioFit = (srcWidth, srcHeight, maxWidth, maxHeight) => {
 
 }
 
+const saveDialog = (cb) => {
+	const {dialog} = remote; // get dialog out of remote
+
+	return dialog.showSaveDialog((fileName) => {
+		if(fileName === undefined){
+			alert('file not saved');
+			return;
+		}
+
+		// call the callback with filename
+
+		cb(fileName);
+	})
+}
+
 const saveImage = (filename, data) => {
 	fs.writeFile(filename, data, 'base64', (err) => {
 		alert(err);
@@ -15,5 +31,7 @@ const saveImage = (filename, data) => {
 }
 
 export default {
-	calculateAspectRatioFit
+	calculateAspectRatioFit,
+	saveDialog,
+	saveImage
 }
