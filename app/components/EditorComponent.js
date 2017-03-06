@@ -9,6 +9,7 @@ import {updateCanvasImage} from '../actions/canvas';
 import {connect} from 'react-redux';
 import {remote} from 'electron';
 import Icon from './Icon';
+import {saveImage, saveDialog} from '../utils';
 
 class Editor extends React.Component {
 
@@ -21,6 +22,9 @@ class Editor extends React.Component {
 
 	onImage = (files) => {
 		this.props.updateCanvasImage(files[0].path);
+		this.setState({
+			filename: files[0].path // extract filename from image
+		})
 	}
 
 	showUploader = () => {
@@ -30,8 +34,9 @@ class Editor extends React.Component {
 	}
 
 	onDowload = () => {
-		const {stage} = this.state;
-		let newImage = stage.getStage().toDataURL(); // get canvas dataurl data
+		const {stage, filename} = this.state;
+		let newImage = stage.getStage().toDataURL().replace(/^data:image\/png;base64,/, ""); // get canvas dataurl data and strip data meta ( we don't need it to save file to disk )
+		saveDialog(filename, (name) => saveImage(name, newImage));
 	}
 
 	render () {
