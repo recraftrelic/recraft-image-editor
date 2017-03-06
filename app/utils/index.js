@@ -9,24 +9,24 @@ const calculateAspectRatioFit = (srcWidth, srcHeight, maxWidth, maxHeight) => {
 
 }
 
-const saveDialog = (cb) => {
+const saveDialog = (defaultPath ,cb) => {
 	const {dialog} = remote; // get dialog out of remote
 
-	return dialog.showSaveDialog((fileName) => {
-		if(fileName === undefined){
+	return dialog.showSaveDialog({defaultPath}, (name) => {
+		if(name === undefined){
 			alert('file not saved');
 			return;
 		}
 
-		// call the callback with filename
+		// call the callback with name
 
-		cb(fileName);
+		cb(name);
 	})
 }
 
 const saveImage = (filename, data) => {
 	fs.writeFile(filename, data, 'base64', (err) => {
-		alert(err);
+		console.log(err);
 	})
 }
 
