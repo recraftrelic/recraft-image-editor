@@ -13,7 +13,10 @@ import Icon from './Icon';
 class Editor extends React.Component {
 
 	constructor(props) {
-		super(props)
+		super(props);
+		this.state = {
+			stage: null
+		}
 	}
 
 	onImage = (files) => {
@@ -26,12 +29,17 @@ class Editor extends React.Component {
 				</Uploader>
 	}
 
+	onDowload = () => {
+		const {stage} = this.state;
+		let newImage = stage.getStage().toDataURL(); // get canvas dataurl data
+	}
+
 	render () {
 		const {image, width, height, rotation} = this.props.canvas;
 		return (
 			<div>
 				<TitleBar remote={remote} title="This is a title" theme="light"/>
-				{ image ? <CanvasComponent rotation={rotation} bgImage={image} width={width} height={height} /> : this.showUploader()}
+				{ image ? <CanvasComponent getStage={(stage) => this.setState({stage})} rotation={rotation} bgImage={image} width={width} height={height} /> : this.showUploader()}
 				<ActionBar>
 					<button className="btn btn-default">
 						<Icon name="undo" />
@@ -39,7 +47,7 @@ class Editor extends React.Component {
 					<button className="btn btn-default">
 						<Icon name="repeat" />
 					</button>
-					<button className="btn btn-default">
+					<button onClick={this.onDowload} className="btn btn-default">
 						<Icon name="download" />
 					</button>
 				</ActionBar>
