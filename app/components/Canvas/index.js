@@ -9,6 +9,7 @@ class CanvasComponent extends React.Component {
 			getStage(this.stage);
 		}
 	}
+	
 	render(){
 		const {width, height, bgImage, rotation} = this.props;
 		return (

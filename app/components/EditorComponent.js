@@ -44,19 +44,21 @@ class Editor extends React.Component {
 		const {image, width, height, rotation, title} = this.props.canvas;
 		return (
 			<div>
-				<TitleBar remote={remote} title={title} theme="light"/>
-				{ image ? <CanvasComponent getStage={(stage) => this.setState({stage})} rotation={rotation} bgImage={image} width={width} height={height} /> : this.showUploader()}
-				<ActionBar>
-					<button className="btn btn-default">
-						<Icon name="undo" />
-					</button>
-					<button className="btn btn-default">
-						<Icon name="repeat" />
-					</button>
-					<button onClick={this.onDowload} className="btn btn-default">
-						<Icon name="download" />
-					</button>
-				</ActionBar>
+				<TitleBar remote={remote} title="This is a title" theme="light"/>
+				{ image ? <div>
+					<CanvasComponent getStage={(stage) => this.setState({stage})} rotation={rotation} bgImage={image} width={width} height={height} />
+					<ActionBar>
+						<button className="btn btn-default">
+							<Icon name="undo" />
+						</button>
+						<button className="btn btn-default">
+							<Icon name="repeat" />
+						</button>
+						<button onClick={this.onDowload} className="btn btn-default">
+							<Icon name="download" />
+						</button>
+					</ActionBar>
+				</div> : this.showUploader()}
 			</div>
 		)
 	}
