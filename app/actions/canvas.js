@@ -29,6 +29,16 @@ const updateCanvasImage = (image) => {
 	}
 }
 
+const updateTitle = (title) => {
+	return dispatch => {
+		dispatch({
+			type: actionsType.UPDATE_CANVS_TITLE,
+			title
+		})
+	}
+}
+
 export default {
-	updateCanvasImage
+	updateCanvasImage,
+	updateTitle
 }
