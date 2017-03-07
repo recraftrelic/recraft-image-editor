@@ -1,0 +1,9 @@
+.titleBarButton {
+	padding: 0px 12px;
+    background-color: transparent;
+    border: none;
+    font-size: 17px;
+    &:focus, &:focus:active {
+    	outline: none;
+    }
+}
