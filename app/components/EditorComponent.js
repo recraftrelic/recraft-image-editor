@@ -44,7 +44,7 @@ class Editor extends React.Component {
 		const {image, width, height, rotation, title} = this.props.canvas;
 
 		let sideButtons = [
-			<button className="btn btn-default">
+			<button className="btn btn-default titleBarButton">
 				<Icon name="sliders" />
 			</button>
 		];
