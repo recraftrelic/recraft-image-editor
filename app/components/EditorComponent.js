@@ -42,9 +42,16 @@ class Editor extends React.Component {
 
 	render () {
 		const {image, width, height, rotation, title} = this.props.canvas;
+
+		let sideButtons = [
+			<button className="btn btn-default">
+				<Icon name="sliders" />
+			</button>
+		];
+
 		return (
 			<div>
-				<TitleBar remote={remote} title={title} theme="light"/>
+				<TitleBar remote={remote} title={title} theme="light" buttons={sideButtons}/>
 				{ image ? <div>
 					<CanvasComponent getStage={(stage) => this.setState({stage})} rotation={rotation} bgImage={image} width={width} height={height} />
 					<ActionBar>
