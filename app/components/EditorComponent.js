@@ -44,7 +44,7 @@ class Editor extends React.Component {
 		const {image, width, height, rotation, title} = this.props.canvas;
 		return (
 			<div>
-				<TitleBar remote={remote} title="This is a title" theme="light"/>
+				<TitleBar remote={remote} title={title} theme="light"/>
 				{ image ? <div>
 					<CanvasComponent getStage={(stage) => this.setState({stage})} rotation={rotation} bgImage={image} width={width} height={height} />
 					<ActionBar>
