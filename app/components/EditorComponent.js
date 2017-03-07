@@ -48,10 +48,7 @@ class Editor extends React.Component {
 					<CanvasComponent getStage={(stage) => this.setState({stage})} rotation={rotation} bgImage={image} width={width} height={height} />
 					<ActionBar>
 						<button className="btn btn-default">
-							<Icon name="undo" />
-						</button>
-						<button className="btn btn-default">
-							<Icon name="repeat" />
+							<Icon name="sliders" />
 						</button>
 						<button onClick={this.onDowload} className="btn btn-default">
 							<Icon name="download" />
