@@ -5,7 +5,7 @@ import CanvasComponent from './Canvas';
 import TitleBar from 'react-window-titlebar';
 import ActionBar from './ActionBar';
 import {bindActionCreators} from 'redux';
-import {updateCanvasImage} from '../actions/canvas';
+import {updateCanvasImage, updateTitle} from '../actions/canvas';
 import {connect} from 'react-redux';
 import {remote} from 'electron';
 import Icon from './Icon';
@@ -22,6 +22,7 @@ class Editor extends React.Component {
 
 	onImage = (files) => {
 		this.props.updateCanvasImage(files[0].path);
+		this.props.updateTitle(files[0].name);
 		this.setState({
 			filename: files[0].path // extract filename from image
 		})
@@ -40,10 +41,10 @@ class Editor extends React.Component {
 	}
 
 	render () {
-		const {image, width, height, rotation} = this.props.canvas;
+		const {image, width, height, rotation, title} = this.props.canvas;
 		return (
 			<div>
-				<TitleBar remote={remote} title="This is a title" theme="light"/>
+				<TitleBar remote={remote} title={title} theme="light"/>
 				{ image ? <CanvasComponent getStage={(stage) => this.setState({stage})} rotation={rotation} bgImage={image} width={width} height={height} /> : this.showUploader()}
 				<ActionBar>
 					<button className="btn btn-default">
@@ -63,5 +64,5 @@ class Editor extends React.Component {
 
 export default connect((state) => ({
 	canvas: state.canvas
-}), (dispatch) => bindActionCreators({updateCanvasImage}, dispatch)
+}), (dispatch) => bindActionCreators({updateCanvasImage, updateTitle}, dispatch)
 )(Editor);
