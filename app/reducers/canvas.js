@@ -5,7 +5,7 @@ const initState = {
 	height: 0,
 	width: 0,
 	rotation: 0,
-	title: ''
+	title: 'Upload a new image'
 };
 
 
