@@ -41,14 +41,18 @@ class Editor extends React.Component {
 		saveDialog(filename, (name) => saveImage(name, newImage));
 	}
 
-	openEffects
+	openEffectPopup = () => {
+		this.setState((prevState) => ({
+			effectsPopup: !prevState.effectsPopup
+		}))
+	}
 
 	render () {
 		const {image, width, height, rotation, title} = this.props.canvas;
 		const {effectsPopup} = this.state;
 
 		let sideButtons = [
-			<button className="btn btn-default titleBarButton">
+			<button onClick={this.openEffectPopup} className="btn btn-default titleBarButton">
 				<Icon name="sliders" />
 			</button>
 		];
