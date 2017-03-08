@@ -74,6 +74,9 @@ class Editor extends React.Component {
 					</ActionBar>
 				</div> : this.showUploader()}
 				<Popup style={popupStyle} isOpen={effectsPopup}>
+					<input type="range" />
+					<input type="range" />
+					<input type="range" />
 				</Popup>
 			</div>
 		)
