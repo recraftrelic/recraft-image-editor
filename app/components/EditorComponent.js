@@ -52,6 +52,10 @@ class Editor extends React.Component {
 		const {image, width, height, rotation, title} = this.props.canvas;
 		const {effectsPopup} = this.state;
 
+		let popupStyle = {
+			top: 30
+		}
+
 		let sideButtons = [
 			<button onClick={this.openEffectPopup} className="btn btn-default titleBarButton">
 				<Icon name="sliders" />
@@ -69,7 +73,8 @@ class Editor extends React.Component {
 						</button>
 					</ActionBar>
 				</div> : this.showUploader()}
-				<Popup isOpen={effectsPopup}></Popup>
+				<Popup style={popupStyle} isOpen={effectsPopup}>
+				</Popup>
 			</div>
 		)
 	}
