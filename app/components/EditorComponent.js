@@ -5,18 +5,20 @@ import CanvasComponent from './Canvas';
 import TitleBar from 'react-window-titlebar';
 import ActionBar from './ActionBar';
 import {bindActionCreators} from 'redux';
-import {updateCanvasImage, updateTitle} from '../actions/canvas';
+import {updateCanvasImage, updateTitle, changeBrightness, changeGreyscale, changeSepia} from '../actions/canvas';
 import {connect} from 'react-redux';
 import {remote} from 'electron';
 import Icon from './Icon';
 import {saveImage, saveDialog} from '../utils';
+import Popup from './Popup';
 
 class Editor extends React.Component {
 
 	constructor(props) {
 		super(props);
 		this.state = {
-			stage: null
+			stage: null,
+			effectsPopup: false
 		}
 	}
 
@@ -40,11 +42,23 @@ class Editor extends React.Component {
 		saveDialog(filename, (name) => saveImage(name, newImage));
 	}
 
+	openEffectPopup = () => {
+		this.setState((prevState) => ({
+			effectsPopup: !prevState.effectsPopup
+		}))
+	}
+
 	render () {
-		const {image, width, height, rotation, title} = this.props.canvas;
+		const {image, width, height, rotation, title, brightness, greyscale, sepia} = this.props.canvas;
+		const {changeBrightness, changeGreyscale, changeSepia} = this.props;
+		const {effectsPopup} = this.state;
+
+		let popupStyle = {
+			top: 30
+		}
 
 		let sideButtons = [
-			<button className="btn btn-default titleBarButton">
+			<button onClick={this.openEffectPopup} className="btn btn-default titleBarButton">
 				<Icon name="sliders" />
 			</button>
 		];
@@ -60,6 +74,11 @@ class Editor extends React.Component {
 						</button>
 					</ActionBar>
 				</div> : this.showUploader()}
+				<Popup style={popupStyle} isOpen={effectsPopup}>
+					<input type="range" value={brightness} onChange={(e) => changeBrightness(e.target.value)} />
+					<input type="range" value={greyscale} onChange={(e) => changeGreyscale(e.target.value)} />
+					<input type="range" value={sepia} onChange={(e) => changeSepia(e.target.value)} />
+				</Popup>
 			</div>
 		)
 	}
@@ -67,5 +86,5 @@ class Editor extends React.Component {
 
 export default connect((state) => ({
 	canvas: state.canvas
-}), (dispatch) => bindActionCreators({updateCanvasImage, updateTitle}, dispatch)
+}), (dispatch) => bindActionCreators({updateCanvasImage, updateTitle, changeBrightness, changeGreyscale, changeSepia}, dispatch)
 )(Editor);

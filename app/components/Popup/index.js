@@ -2,8 +2,9 @@ import React from 'react';
 
 class Popup extends React.Component {
 	render () {
+		const {isOpen, style} = this.props;
 		return (
-			<div className="popupContainer">
+			<div style={{ display: isOpen ? 'inline-block' : 'none', ...style }} className="popupContainer">
 				<div className="popup">
 					{this.props.children}
 				</div>

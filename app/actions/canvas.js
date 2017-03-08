@@ -38,7 +38,38 @@ const updateTitle = (title) => {
 	}
 }
 
+const changeBrightness = (value) => {
+	return dispatch => {
+		dispatch({
+			type: actionsType.UPDATE_BRIGHTNESS,
+			brightness: value
+		})
+	}
+}
+
+const changeGreyscale = (value) => {
+	return dispatch => {
+		dispatch({
+			type: actionsType.UPDATE_GREYSCALE,
+			greyscale: value
+		})
+	}
+}
+
+
+const changeSepia = (value) => {
+	return dispatch => {
+		dispatch({
+			type: actionsType.UPDATE_SEPIA,
+			sepia: value
+		})
+	}
+}
+
 export default {
 	updateCanvasImage,
-	updateTitle
+	updateTitle,
+	changeBrightness,
+	changeGreyscale,
+	changeSepia
 }
