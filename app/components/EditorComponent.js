@@ -10,6 +10,7 @@ import {connect} from 'react-redux';
 import {remote} from 'electron';
 import Icon from './Icon';
 import {saveImage, saveDialog} from '../utils';
+import Popup from './Popup';
 
 class Editor extends React.Component {
 
