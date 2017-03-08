@@ -16,7 +16,8 @@ class Editor extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			stage: null
+			stage: null,
+			effectsPopup: false
 		}
 	}
 
@@ -40,8 +41,11 @@ class Editor extends React.Component {
 		saveDialog(filename, (name) => saveImage(name, newImage));
 	}
 
+	openEffects
+
 	render () {
 		const {image, width, height, rotation, title} = this.props.canvas;
+		const {effectsPopup} = this.state;
 
 		let sideButtons = [
 			<button className="btn btn-default titleBarButton">
@@ -60,6 +64,7 @@ class Editor extends React.Component {
 						</button>
 					</ActionBar>
 				</div> : this.showUploader()}
+				<Popup isOpen={effectsPopup}></Popup>
 			</div>
 		)
 	}
