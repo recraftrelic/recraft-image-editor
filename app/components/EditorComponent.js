@@ -50,6 +50,7 @@ class Editor extends React.Component {
 
 	render () {
 		const {image, width, height, rotation, title, brightness, greyscale, sepia} = this.props.canvas;
+		const {changeBrightness, changeGreyscale, changeSepia} = this.props;
 		const {effectsPopup} = this.state;
 
 		let popupStyle = {
