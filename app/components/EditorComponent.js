@@ -5,7 +5,7 @@ import CanvasComponent from './Canvas';
 import TitleBar from 'react-window-titlebar';
 import ActionBar from './ActionBar';
 import {bindActionCreators} from 'redux';
-import {updateCanvasImage, updateTitle} from '../actions/canvas';
+import {updateCanvasImage, updateTitle, changeBrightness, changeGreyscale, changeSepia} from '../actions/canvas';
 import {connect} from 'react-redux';
 import {remote} from 'electron';
 import Icon from './Icon';
@@ -49,7 +49,7 @@ class Editor extends React.Component {
 	}
 
 	render () {
-		const {image, width, height, rotation, title} = this.props.canvas;
+		const {image, width, height, rotation, title, brightness, greyscale, sepia} = this.props.canvas;
 		const {effectsPopup} = this.state;
 
 		let popupStyle = {
@@ -74,9 +74,9 @@ class Editor extends React.Component {
 					</ActionBar>
 				</div> : this.showUploader()}
 				<Popup style={popupStyle} isOpen={effectsPopup}>
-					<input type="range" />
-					<input type="range" />
-					<input type="range" />
+					<input type="range" value={brightness} onChange={(e) => changeBrightness(e.target.value)} />
+					<input type="range" value={greyscale} onChange={(e) => changeGreyscale(e.target.value)} />
+					<input type="range" value={sepia} onChange={(e) => changeSepia(e.target.value)} />
 				</Popup>
 			</div>
 		)
@@ -85,5 +85,5 @@ class Editor extends React.Component {
 
 export default connect((state) => ({
 	canvas: state.canvas
-}), (dispatch) => bindActionCreators({updateCanvasImage, updateTitle}, dispatch)
+}), (dispatch) => bindActionCreators({updateCanvasImage, updateTitle, changeBrightness, changeGreyscale, changeSepia}, dispatch)
 )(Editor);
